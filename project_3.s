@@ -18,4 +18,10 @@ main:
     li $a1, 1002 #loads characters
     syscall #calls command
 
-    
+    la $t3, SpaceInput #strips the newline
+
+strip_nl:
+    lb $t0, 0($t3) #loads first byte of input
+    beqz $t0, done_strip #checks if it is equal tp the finished strip
+    li $t4, 0x0A #loads into $t4
+    beq $t0, $t8, do_null
