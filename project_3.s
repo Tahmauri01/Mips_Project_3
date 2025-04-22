@@ -48,5 +48,12 @@ print_loop:
     beq $t6, $t7, print_null #if byte and 0x7FFFFFFF are equal, prints null
 
     li $v0, 1 #number for printing an integer
-    move $a0, $t3 #stores value of $a0 into $t3
-    
+    move $a0, $t6 #stores value of $a0 into $t6
+    syscall #calls print command
+
+    j do_semicolon #jumps to do_semicolon function
+
+print_null:
+    li $v0, 4 #number for printing a byte
+    la $a0, null_msg #loads null message
+
