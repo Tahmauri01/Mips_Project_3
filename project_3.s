@@ -111,3 +111,9 @@ get_substring_value:
     addi $sp, $sp, 4 #pushes by 4 bits
 
     addi $sp, $sp, -12 #goes back 12 bits
+    sw $t9, 8($sp) #saves values of t9, s0, s1
+    sw $s0, 4($sp) 
+    sw $s1, 0($sp)
+
+    li $s2, 0 #charater index
+    li $t9, 0 #G
