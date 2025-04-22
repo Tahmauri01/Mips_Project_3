@@ -65,3 +65,12 @@ skip_sem:
 exit_main:
     li $v0, 10 #number to exit
     syscall #calls function to exit
+
+process_string:
+    addi $sp, $sp, -16 #subtracts 16 from sp
+    sw $ra, 0($sp) #stores first byte of sp into ra
+    sw $t8, 4($sp) #stores second byte
+    sw $t9, 8($sp) #stores third byte
+    sw $s0, 12($sp) #stores fourth byte
+
+    
