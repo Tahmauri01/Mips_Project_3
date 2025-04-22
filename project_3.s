@@ -58,6 +58,13 @@ print_null:
     la $a0, null_msg #loads null message
     syscall #calls function to print
 
+do_semicolon:
+    addi $t1, $t1, 1
+    beq $t1, $t0, skip_sem
+    li $v0, 4 #number for printing 
+    la $a0, semicolon #loads semicolon
+    syscall #calls printing command
+
 skip_sem:
     addi $t5, $t5, 4 #adds 4 to $t5 to skip this segment
     j print_loop #jumps to print loop function
