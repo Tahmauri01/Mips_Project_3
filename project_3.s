@@ -146,3 +146,10 @@ gsv_low:
     addi $s4, $s4, 10
     j gsv_valid #jumps to gsv_valid function
 
+gsv_up:
+    li $t3, 65 #loads 65 for 'A'
+    blt $s3, $t3, gsv_next #if less than, goes to hsv next
+    add $t4, $t3, $t2 # 'A' + M - 1
+    bge $s3, $t4, gsv_next #if greater than, goes to gsv_next
+    sub $s4, $s3, $t3
+    
