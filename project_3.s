@@ -140,3 +140,9 @@ gsv_check:
 gsv_low:
     li $t3, 97 #loads 97 for 'a'
     blt $s3, $t3, gsv_up #if less than, goes to gsv_up
+    add $t4, $t3, $t2 #a + M
+    bge $s3, $t4, gsv_up #if greater than, goes to gsv_up
+    sub $s4, $s3, $t3 # 'a' + M - 1
+    addi $s4, $s4, 10
+    j gsv_valid #jumps to gsv_valid function
+
