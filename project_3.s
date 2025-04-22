@@ -178,4 +178,9 @@ gsv_null:
     li $t0, 0x7FFFFFFF #loads null value
 
 gsv_store:
-    lw $s1, 8($sp)
+    lw $t9, 8($sp) #restores t9, s0, and s1 values
+    lw $s0, 4($sp)
+    lw $s1, 0($sp)
+    addi $sp, $sp, 12
+
+    addi $sp, $sp, -4
