@@ -81,3 +81,10 @@ ps_loop:
     lb $t0, 0($t9) #loads first byte of $t9 into $t0
     beqz $t0, ps_done #if equal, goes to ps_done
 
+    addi $sp, $sp, -4 #pushes adress back 4 bits
+    sw $t9, 0($sp)
+
+    jal get_substring_value #jumps to get_substring_value function
+
+    lw $t1, 0($sp) #Gets value for t1
+    addi $sp, $sp, 4 #pushes address up 4 bits
