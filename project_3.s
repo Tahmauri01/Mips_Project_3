@@ -124,4 +124,13 @@ gsv_loop:
     bge $s2, 10, gsv_done #finishes loop if index reaches 10
     lb $s3, 0($a0) #loads first byte of a0 to print
     beqz $s3, gsv_pad #goes to gsv_pad if s3 equal
+    j gsv_check #jumps to gsv_check function
+
+gsv_pad:
+    li $s3, 32 #loads space
+
+gsv_check:
+    li $t3, 48 #loads 48 for '0'
+    li $t4, 57 #loads 57 for '9'
+    blt $s3, $t3, gsv_low #if less than, go to gsv_low
     
