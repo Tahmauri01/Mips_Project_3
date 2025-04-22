@@ -169,3 +169,13 @@ gsv_next:
     addi $a0, $a0, 1 
     j gsv_loop #jumps to gsv_loop function
 
+gsv_done:
+    beqz $s1, gsv_null #goes to null if equal
+    sub $t0, $t9, $s0
+    j gsv_store #jumps to gsv_store function
+
+gsv_null:
+    li $t0, 0x7FFFFFFF #loads null value
+
+gsv_store:
+    lw $s1, 8($sp)
