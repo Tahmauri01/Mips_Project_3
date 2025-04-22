@@ -24,4 +24,14 @@ strip_nl:
     lb $t0, 0($t3) #loads first byte of input
     beqz $t0, done_strip #checks if it is equal tp the finished strip
     li $t4, 0x0A #loads into $t4
-    beq $t0, $t8, do_null
+    beq $t0, $t4, do_null #if equal do_null
+    addi $t3, $t3, 1 #adds 1 to keep loop going
+    j strip_nl #jumps to strip_nl to loop
+
+do_null:
+    sb $zero, 0($t3) #stores first byte of $t3
+
+done_strip:
+    la $a0, SpaceInput #loads the intput 
+    la $a1, strint #loads adress of strint
+    
