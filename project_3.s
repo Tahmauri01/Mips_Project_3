@@ -9,7 +9,7 @@ strint: .space 4000 #array for integer result
 .globl main
 
 main:
-    li $t0, 30 #hard coded N, loaded into $t0
+    li $t0, 32 #hard coded N, loaded into $t0
     li $t1, 10 #loads 10 into $t1
     sub $t2, $t0, $t1 #Calculates M
 
