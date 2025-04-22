@@ -102,4 +102,12 @@ ps_done:
     lw $t8, 4($sp)
     lw $t9, 8($sp)
     lw $s0, 12($sp)
-    
+
+    addi $sp, $sp, 16
+    jr $ra
+
+get_substring_value:
+    lw $a0, 0($sp) #puts first byte into $a0
+    addi $sp, $sp, 4 #pushes by 4 bits
+
+    addi $sp, $sp, -12 #goes back 12 bits
