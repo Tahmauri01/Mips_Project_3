@@ -152,4 +152,11 @@ gsv_up:
     add $t4, $t3, $t2 # 'A' + M - 1
     bge $s3, $t4, gsv_next #if greater than, goes to gsv_next
     sub $s4, $s3, $t3
+    addi $s4, $s4, 10
+
+gsv_valid:
+    addi $s1, $s1, 1 #increases digit count by 1
+    li $t3, 5 #loads 5 into t3
+    blt $s2, $t3, gsv_addG #if less than, goes to G
+    add $s0, $s0, $s4
     
