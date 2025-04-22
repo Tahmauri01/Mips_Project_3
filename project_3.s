@@ -117,3 +117,11 @@ get_substring_value:
 
     li $s2, 0 #charater index
     li $t9, 0 #G
+    li $s0, 0 #H
+    li $s1, 0 # valid digit count
+
+gsv_loop:
+    bge $s2, 10, gsv_done #finishes loop if index reaches 10
+    lb $s3, 0($a0) #loads first byte of a0 to print
+    beqz $s3, gsv_pad #goes to gsv_pad if s3 equal
+    
