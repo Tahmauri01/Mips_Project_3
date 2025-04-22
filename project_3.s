@@ -56,4 +56,12 @@ print_loop:
 print_null:
     li $v0, 4 #number for printing a byte
     la $a0, null_msg #loads null message
+    syscall #calls function to print
 
+skip_sem:
+    addi $t5, $t5, 4 #adds 4 to $t5 to skip this segment
+    j print_loop #jumps to print loop function
+
+exit_main:
+    li $v0, 10 #number to exit
+    syscall #calls function to exit
