@@ -42,4 +42,11 @@ done_strip:
 
 print_loop:
     beq $t1, $t0, exit_main #if equal, exit loop
+
+    lw $t6, 0($t5) #loads first byte of the input
+    li $t7, 0x7FFFFFFF #loads 0x7FFFFFFF into $t7
+    beq $t6, $t7, print_null #if byte and 0x7FFFFFFF are equal, prints null
+
+    li $v0, 1 #number for printing an integer
+    move $a0, $t3 #stores value of $a0 into $t3
     
