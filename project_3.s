@@ -73,4 +73,11 @@ process_string:
     sw $t9, 8($sp) #stores third byte
     sw $s0, 12($sp) #stores fourth byte
 
-    
+    move $t8, $a1 # saves value of $t8
+    move $t9, $a0 # saves value of $t9
+    li $s0, 0 # loads 0 into $s0 for count
+
+ps_loop:
+    lb $t0, 0($t9) #loads first byte of $t9 into $t0
+    beqz $t0, ps_done #if equal, goes to ps_done
+
