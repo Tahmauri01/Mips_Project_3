@@ -94,3 +94,12 @@ ps_loop:
     addi $s0, $s0, 1 #pushes by 1 bit
     addi $t9, $t9, 10 #pushes by 10 bits
     j ps_loop #jumps to ps_loop function
+
+ps_done:
+    move $v0, $s0 #returns the count
+
+    lw $ra, 0($sp) #restores ra, t8, t9, and s0
+    lw $t8, 4($sp)
+    lw $t9, 8($sp)
+    lw $s0, 12($sp)
+    
