@@ -133,4 +133,10 @@ gsv_check:
     li $t3, 48 #loads 48 for '0'
     li $t4, 57 #loads 57 for '9'
     blt $s3, $t3, gsv_low #if less than, go to gsv_low
-    
+    bgt $s3, $t4, gsv_low #if greater than, go to gsv_low
+    sub $s4, $s3, $t3 #subtracks the characters
+    j gsv_valid #jumps to gsv_valid function
+
+gsv_low:
+    li $t3, 97 #loads 97 for 'a'
+    blt $s3, $t3, gsv_up #if less than, goes to gsv_up
