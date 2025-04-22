@@ -183,4 +183,6 @@ gsv_store:
     lw $s1, 0($sp)
     addi $sp, $sp, 12
 
-    addi $sp, $sp, -4
+    addi $sp, $sp, -4 #return
+    sw $t0, 0($sp)
+    jr $ra
