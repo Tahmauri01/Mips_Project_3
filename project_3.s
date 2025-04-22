@@ -3,7 +3,7 @@ SpaceInput: .space 1002 #takes up to 1000 characters and the newline and null te
 null_msg: .asciiz "NULL" #message for null input
 semicolon: .asciiz ";" #semicolon for separation
 .align 2
-strint: .space #array for integer result
+strint: .space 4000 #array for integer result
 
 .text
 .globl main
