@@ -159,4 +159,13 @@ gsv_valid:
     li $t3, 5 #loads 5 into t3
     blt $s2, $t3, gsv_addG #if less than, goes to G
     add $s0, $s0, $s4
-    
+    j gsv_next #jumps to gsv next
+
+gsv_addG:
+    add $t9, $t9, $s4 #adds G
+
+gsv_next:
+    addi $s2, $s2, 1 # goes to the next character index
+    addi $a0, $a0, 1 
+    j gsv_loop #jumps to gsv_loop function
+
