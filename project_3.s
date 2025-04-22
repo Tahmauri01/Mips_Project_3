@@ -88,3 +88,9 @@ ps_loop:
 
     lw $t1, 0($sp) #Gets value for t1
     addi $sp, $sp, 4 #pushes address up 4 bits
+
+    sw $t1, 0($t8) #stores $t1
+    addi $t8, $t8, 4 #pushes by 4 bits
+    addi $s0, $s0, 1 #pushes by 1 bit
+    addi $t9, $t9, 10 #pushes by 10 bits
+    j ps_loop #jumps to ps_loop function
