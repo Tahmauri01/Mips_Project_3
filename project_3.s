@@ -34,4 +34,12 @@ do_null:
 done_strip:
     la $a0, SpaceInput #loads the intput 
     la $a1, strint #loads adress of strint
+    jal process_string #returns substring count
+
+    move $t0, $v0 #counts, moves value of $t0
+    li $t1, 0 #loads 0 into $t1
+    la $t5, strint
+
+print_loop:
+    beq $t1, $t0, exit_main #if equal, exit loop
     
